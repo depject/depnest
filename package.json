@@ -21,7 +21,10 @@
     "type": "git",
     "url": "git+https://github.com/ahdinosaur/depnest.git"
   },
-  "keywords": [],
+  "keywords": [
+    "depject",
+    "nested"
+  ],
   "author": "Mikey <michael.williams@enspiral.com> (http://dinosaur.is)",
   "license": "Apache-2.0",
   "bugs": {
