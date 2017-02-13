@@ -19,9 +19,7 @@ function nestObject (object) {
   var out = {}
   each(object, (value, path) => {
     if (isArray(value)) {
-      console.log(value)
       value = arrayToObject(value)
-      console.log(value)
     }
     set(out, Path(path), value)
   })
