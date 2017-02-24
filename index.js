@@ -11,19 +11,23 @@ function depnest (...args) {
 
 function nestOne (path, value = true) {
   var out = {}
-  set(out, Path(path), value)
+  setNest(out, path, value)
   return out
 }
 
 function nestObject (object) {
   var out = {}
   each(object, (value, path) => {
-    if (isArray(value)) {
-      value = arrayToObject(value)
-    }
-    set(out, Path(path), value)
+    setNest(out, path, value)
   })
   return out
+}
+
+function setNest (out, path, value) {
+  if (isArray(value)) {
+    value = arrayToObject(value)
+  }
+  set(out, Path(path), value)
 }
 
 function Path (stringOrArray) {
