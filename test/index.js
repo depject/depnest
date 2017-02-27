@@ -15,6 +15,22 @@ test('nest(string)', t => {
   t.end()
 })
 
+test('nest(array)', t => {
+  const args = [[
+    'cats.actions.create',
+  ]]
+  const expected = {
+    cats: {
+      actions: {
+        create: true,
+      }
+    }
+  }
+  const actual = nest(...args)
+  t.deepEqual(actual, expected, 'actual equals expected')
+  t.end()
+})
+
 test('nest(string, string)', t => {
   const args = ['cats.actions.set', 'first']
   const expected = { cats: { actions: { set: 'first' } } }

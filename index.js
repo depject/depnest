@@ -4,7 +4,8 @@ const { set, each } = require('libnested')
 module.exports = depnest
 
 function depnest (...args) {
-  if (typeof args[0] === 'string') return nestOne(...args)
+  if (isArray(args[0])) return arrayToObject(args[0])
+  else if (typeof args[0] === 'string') return nestOne(...args)
   else if (typeof args[0] === 'object') return nestObject(...args)
   throw new Error(`depnest: incorrect arguments! got: ${JSON.stringify(args)}`)
 }
