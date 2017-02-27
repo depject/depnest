@@ -17,12 +17,12 @@ test('nest(string)', t => {
 
 test('nest(array)', t => {
   const args = [[
-    'cats.actions.create',
+    'cats.actions.create'
   ]]
   const expected = {
     cats: {
       actions: {
-        create: true,
+        create: true
       }
     }
   }
