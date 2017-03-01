@@ -147,3 +147,44 @@ test('nest(object) with functions', t => {
   t.deepEqual(actual, expected, 'actual equals expected')
   t.end()
 })
+
+test('nest(string, nestedArray)', t => {
+  const args = ['cats', [
+    'actions.load',
+    'elements.show'
+  ]]
+  const expected = {
+    cats: {
+      actions: {
+        load: true
+      },
+      elements: {
+        show: true
+      }
+    }
+  }
+  const actual = nest(...args)
+  t.deepEqual(actual, expected, 'actual equals expected')
+  t.end()
+})
+
+test('nest(string, nestedObject)', t => {
+  const args = ['cats', {
+    'actions.load': 'first',
+    'elements.show': 'first'
+  }]
+  const expected = {
+    cats: {
+      actions: {
+        load: 'first'
+      },
+      elements: {
+        show: 'first'
+      }
+    }
+  }
+  const actual = nest(...args)
+  t.deepEqual(actual, expected, 'actual equals expected')
+  t.end()
+})
+

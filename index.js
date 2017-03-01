@@ -27,6 +27,8 @@ function nestObject (object) {
 function setNest (out, path, value) {
   if (isArray(value)) {
     value = arrayToObject(value)
+  } else if (typeof value === 'object') {
+    value = nestObject(value)
   }
   set(out, Path(path), value)
 }
